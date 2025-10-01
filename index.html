@@ -1,56 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>Pip-Boy Terminal - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="pipboy-container">
+        <header class="pipboy-header">
+            <span class="pipboy-status glitch">VAULT-TEC SYSTEM ACTIVE</span>
+            <span class="pipboy-date">2077.10.23</span>
+        </header>
 
-    <header class="main-header">
-        <nav class="main-nav">
-            <a href="#" class="nav-logo">MiLogo</a>
-            <ul class="nav-menu">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Acerca de</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
+        <nav class="pipboy-nav">
+            <button class="nav-button active" data-target="home-screen">HOME</button>
+            <button class="nav-button" data-target="projects-screen">PROJECTS</button>
+            <button class="nav-button" data-target="about-screen">ABOUT</button>
         </nav>
-    </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Bienvenido a Mi Página Web</h1>
-                <p>Un lugar para empezar a construir algo increíble.</p>
-                <a href="#" class="cta-button">¡Comienza ahora!</a>
-            </div>
-        </section>
+        <main class="pipboy-screen" id="app-screen">
+        </main>
 
-        <section class="content-section">
-            <h2>Nuestros Servicios</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3>Servicio 1</h3>
-                    <p>Descripción breve y concisa del primer servicio que ofreces.</p>
-                </div>
-                <div class="card">
-                    <h3>Servicio 2</h3>
-                    <p>Descripción breve y concisa del segundo servicio que ofreces.</p>
-                </div>
-                <div class="card">
-                    <h3>Servicio 3</h3>
-                    <p>Descripción breve y concisa del tercer servicio que ofreces.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+        <footer class="pipboy-footer">
+            <span>>_ VAULT-TEC SYSTEMS OPERATIONAL...</span>
+            <div class="scanline"></div>
+        </footer>
+    </div>
 
-    <footer class="main-footer">
-        <p>&copy; 2025 Mi Página Web. Todos los derechos reservados.</p>
-    </footer>
-
+    <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-10.mp3" preload="auto"></audio>
+<script src="logica.js" defer></script>
 </body>
 </html>

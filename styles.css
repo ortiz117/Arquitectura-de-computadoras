@@ -1,159 +1,337 @@
-/* --- Reseteo Básico y Fuentes --- */
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --font-family: 'Arial', sans-serif;
-}
+ /* Colores y Fuentes de Fallout */
+        :root {
+            --fallout-bg: #1a2b25;
+            --fallout-text: #64ff64;
+            --fallout-highlight: #a8ffb2;
+            --fallout-border: #3a4b3f;
+            --fallout-glow: rgba(100, 255, 100, 0.4);
+            --fallout-font: 'VT323', monospace;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: var(--font-family);
-    line-height: 1.6;
-    background-color: #fff;
-    color: var(--dark-color);
-}
+        body {
+            background-color: #0d1210;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(100, 255, 100, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(100, 255, 100, 0.03) 0%, transparent 50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: var(--fallout-font);
+            color: var(--fallout-text);
+            overflow-x: hidden;
+        }
 
-/* --- Barra de Navegación --- */
-.main-header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        .pipboy-container {
+            width: 90%;
+            max-width: 900px;
+            background-color: var(--fallout-bg);
+            border: 6px solid var(--fallout-border);
+            border-radius: 15px;
+            box-shadow: 
+                0 0 30px var(--fallout-glow), 
+                inset 0 0 20px rgba(0, 0, 0, 0.5),
+                0 10px 50px rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            animation: powerOn 0.5s ease-out;
+        }
 
-.main-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        @keyframes powerOn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-}
+        .pipboy-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            opacity: 0.6;
+            border-radius: 15px;
+        }
 
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
+        .pipboy-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            pointer-events: none;
+            border-radius: 15px;
+        }
 
-.nav-menu a {
-    text-decoration: none;
-    color: var(--dark-color);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
+        .pipboy-header {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            border-bottom: 3px double var(--fallout-border);
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            z-index: 1;
+            text-shadow: 0 0 8px var(--fallout-glow);
+        }
 
-.nav-menu a:hover {
-    color: var(--primary-color);
-}
+        .pipboy-status::before {
+            content: '[';
+            color: var(--fallout-highlight);
+        }
 
-/* --- Sección Hero --- */
-.hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800'); /* Reemplaza con tu imagen */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    text-align: center;
-    padding: 6rem 1rem;
-}
+        .pipboy-status::after {
+            content: ']';
+            color: var(--fallout-highlight);
+        }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
+        .pipboy-nav {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            margin-bottom: 25px;
+            z-index: 1;
+        }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
+        .nav-button {
+            background-color: rgba(26, 43, 37, 0.8);
+            border: 3px solid var(--fallout-border);
+            color: var(--fallout-text);
+            padding: 12px 20px;
+            font-family: var(--fallout-font);
+            font-size: 1.2em;
+            cursor: pointer;
+            flex-grow: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0,0,0,0.7);
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
 
-.cta-button {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--fallout-glow);
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
 
-.cta-button:hover {
-    background-color: #0056b3;
-}
+        .nav-button:hover:not(.active) {
+            background-color: var(--fallout-border);
+            color: var(--fallout-highlight);
+            box-shadow: 0 0 20px var(--fallout-glow);
+            transform: translateY(-2px);
+        }
 
-/* --- Sección de Contenido --- */
-.content-section {
-    padding: 4rem 2rem;
-    text-align: center;
-}
+        .nav-button:hover:not(.active)::before {
+            width: 100%;
+            height: 100%;
+        }
 
-.content-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--dark-color);
-}
+        .nav-button.active {
+            background-color: var(--fallout-text);
+            color: var(--fallout-bg);
+            border-color: var(--fallout-highlight);
+            box-shadow: 
+                0 0 25px var(--fallout-glow), 
+                inset 0 0 10px var(--fallout-highlight);
+            text-shadow: 0 0 5px var(--fallout-bg);
+            font-weight: bold;
+        }
 
-.card-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
+        .pipboy-screen {
+            flex-grow: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--fallout-border);
+            padding: 25px;
+            overflow-y: auto;
+            max-height: 450px;
+            position: relative;
+            z-index: 1;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+        }
 
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 2rem;
-    max-width: 350px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
+        .pipboy-screen::-webkit-scrollbar {
+            width: 10px;
+        }
 
-.card:hover {
-    transform: translateY(-10px);
-}
+        .pipboy-screen::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+        }
 
-.card h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
+        .pipboy-screen::-webkit-scrollbar-thumb {
+            background: var(--fallout-border);
+            border: 1px solid var(--fallout-text);
+        }
 
-/* --- Pie de Página --- */
-.main-footer {
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    text-align: center;
-    padding: 1.5rem;
-}
+        .pipboy-screen::-webkit-scrollbar-thumb:hover {
+            background: var(--fallout-text);
+        }
 
-/* --- Responsividad --- */
-@media (max-width: 768px) {
-    .nav-menu {
-        flex-direction: column;
-        gap: 1rem;
-        display: none; /* Opcional: Implementar un menú de hamburguesa */
-    }
+        .pipboy-screen h2 {
+            color: var(--fallout-highlight);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--fallout-glow);
+            border-bottom: 2px dashed var(--fallout-border);
+            padding-bottom: 12px;
+            font-size: 2em;
+            letter-spacing: 2px;
+        }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
+        .pipboy-screen p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
 
-    .card-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
+        .pipboy-screen ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pipboy-screen ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1.1em;
+        }
+
+        .pipboy-screen ul li::before {
+            content: '►';
+            position: absolute;
+            left: 0;
+            color: var(--fallout-highlight);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.3; }
+        }
+
+        .work-button {
+            background-color: rgba(26, 43, 37, 0.6);
+            border: 2px solid var(--fallout-border);
+            color: var(--fallout-text);
+            padding: 15px 20px;
+            font-family: var(--fallout-font);
+            font-size: 1.3em;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .work-button:hover {
+            background-color: var(--fallout-border);
+            color: var(--fallout-highlight);
+            box-shadow: 0 0 15px var(--fallout-glow);
+            transform: translateX(5px);
+            border-left: 5px solid var(--fallout-highlight);
+        }
+
+        .work-button::after {
+            content: '→';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .work-button:hover::after {
+            transform: translateX(5px);
+        }
+
+        .pipboy-footer {
+            padding-top: 20px;
+            border-top: 3px double var(--fallout-border);
+            margin-top: 20px;
+            font-size: 1.1em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-shadow: 0 0 5px var(--fallout-glow);
+        }
+
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--fallout-highlight), transparent);
+            animation: scan 3s infinite linear;
+            opacity: 0.6;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(calc(100% + 40px)); }
+        }
+
+        .glitch {
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 2px); }
+            94% { transform: translate(2px, -2px); }
+            96% { transform: translate(-1px, 1px); }
+        }
+
+        @media (max-width: 768px) {
+            .pipboy-container {
+                width: 95%;
+                padding: 15px;
+            }
+            .pipboy-header {
+                font-size: 1.1em;
+            }
+            .nav-button {
+                padding: 10px 12px;
+                font-size: 1em;
+            }
+            .pipboy-screen {
+                padding: 15px;
+                max-height: 350px;
+            }
+            .pipboy-screen h2 {
+                font-size: 1.5em;
+            }
+            .work-button {
+                font-size: 1.1em;
+                padding: 12px 15px;
+            }
+        }
