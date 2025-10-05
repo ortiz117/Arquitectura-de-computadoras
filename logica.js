@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // ============================================
             const trabajos = [
                 {
-                    nombre: "TRABAJO 1 - NOMBRE DEL PROYECTO",  // CAMBIAR AQUÍ
-                    descripcion: "Descripción corta del trabajo 1",
-                    url: "#"  // CAMBIAR POR LA URL DEL TRABAJO
+                    nombre: "TRABAJO 1 - BUSES",  // CAMBIAR AQUÍ
+                    descripcion: "DIAGRAMA INTERACTIVO DE BUSES",
+                    url: "https://ortiz117.github.io/Buses/"  // CAMBIAR POR LA URL DEL TRABAJO
                 },
                 {
                     nombre: "TRABAJO 2 - NOMBRE DEL PROYECTO",  // CAMBIAR AQUÍ
