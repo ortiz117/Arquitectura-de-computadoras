@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     nombre: "TRABAJO 2 - NOMBRE DEL PROYECTO",  // CAMBIAR AQUÍ
                     descripcion: "Descripción corta del trabajo 2",
-                    url: "#"  // CAMBIAR POR LA URL DEL TRABAJO
+                    url: "dos.html"  // CAMBIAR POR LA URL DEL TRABAJO
                 }
             ];
             // ============================================
