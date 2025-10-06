@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     url: "https://ortiz117.github.io/Buses/"  // CAMBIAR POR LA URL DEL TRABAJO
                 },
                 {
-                    nombre: "TRABAJO 2 - NOMBRE DEL PROYECTO",  // CAMBIAR AQUÍ
-                    descripcion: "Descripción corta del trabajo 2",
+                    nombre: "TRABAJO 2 - Modo real, modo protegido y modo virtual",  // CAMBIAR AQUÍ
+                    descripcion: "Descripcion de los modos de direccionamiento de memoria",
                     url: "dos.html"  // CAMBIAR POR LA URL DEL TRABAJO
                 }
             ];
